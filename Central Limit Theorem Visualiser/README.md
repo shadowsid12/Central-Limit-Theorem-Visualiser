@@ -54,16 +54,3 @@ For a population with $\mu = 50$, $\sigma = 10$, and sample size $n = 36$:
 1. Requires sufficiently large sample size for non-normal populations
 2. Assumes independent observations
 3. May not apply to populations with infinite variance
-
-## R Code Example
-
-```r
-# Demonstration of CLT
-set.seed(123)
-population <- rexp(10000, rate = 0.5)  # Exponential distribution
-sample_means <- replicate(1000, mean(sample(population, 30)))
-
-# Plot results
-hist(sample_means, prob = TRUE, main = "Sampling Distribution of Mean")
-curve(dnorm(x, mean = mean(sample_means), sd = sd(sample_means)), 
-      add = TRUE, col = "red", lwd = 2)
